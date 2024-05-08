@@ -140,6 +140,10 @@ def tobs():
     sel = [Measurement.date, Measurement.tobs]
     results = session.query(*sel).filter(Measurement.date >= query_date).filter(Measurement.station == id_top_station).all()
 
+    #closing session
+    session.close
+
+
     #populating the tobs dictionary
     for result in results:
         tobs_dict[result.date]=result.tobs
@@ -164,6 +168,11 @@ def start_end(start, end = None):
     else:
         results= session.query(func.min(Measurement.tobs),func.max(Measurement.tobs),func.avg(Measurement.tobs)).\
                 filter(Measurement.date >= start).all()
+        
+   
+    #closing session
+    session.close
+    
     
     #populating temp_values dictionary
     temp_values = []
