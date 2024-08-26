@@ -1,6 +1,3 @@
-# sqlalchemy-challenge
-
-Module 10 challenge
 
 This assignment involved climate analysis in Hawaii to provide information for a holiday.
 
